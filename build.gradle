@@ -1,0 +1,44 @@
+plugins {
+  id 'java'
+//  id 'com.github.johnrengelman.shadow' version '1.2.2'
+//  id 'application'
+}
+
+sourceCompatibility = 1.7
+
+repositories {
+//    mavenLocal()
+    mavenCentral()
+    //maven { url "https://raw.github.com/neo4j-contrib/m2/master/releases" }
+}
+
+ext {
+    neo4jVersion = "2.2.6"
+    jettyVersion = "9.2.4.v20141103"
+}
+
+/*
+shadowJar {
+    dependencies {
+        include(dependency('com.opencsv:opencsv:3.5'))
+    }
+}
+*/
+
+/*configurations {
+    all*.exclude module: 'jsr311-api'  // jsr311 classes are part org.jboss.resteasy:jaxrs-api
+}*/
+
+dependencies {
+    //testCompile "org.codehaus.groovy:groovy:2.4.5"
+
+    compile group: 'org.neo4j', name: 'server-api', version: neo4jVersion
+    compile group: 'org.neo4j.app', name: 'neo4j-server', version: neo4jVersion
+    compile group: 'org.neo4j', name: 'neo4j-enterprise', version: neo4jVersion
+    compile group: 'org.neo4j.app', name: 'neo4j-server-enterprise', version: neo4jVersion
+
+    //testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+    //testCompile group: 'org.neo4j.contrib', name: 'neo4j-spock-extension', version: '0.6.0'
+//    testCompile group: 'org.neo4j', name: 'neo4j-community', version: neo4jVersion
+
+}
