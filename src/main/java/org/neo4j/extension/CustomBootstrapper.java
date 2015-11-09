@@ -10,6 +10,7 @@ public class CustomBootstrapper extends EnterpriseBootstrapper {
 
     @Override
     protected NeoServer createNeoServer() {
+        System.out.println("loading custombootstrapper....");
         return super.createNeoServer();
     }
 }
